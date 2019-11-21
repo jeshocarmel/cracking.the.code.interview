@@ -38,7 +38,7 @@ func TestSearchMatrix(t *testing.T) {
 		t.Fail()
 	}
 
-	isFound = SearchMatrix(mat, 100)
+	isFound = SearchMatrix(mat, 2000)
 
 	if isFound {
 		t.Errorf("invalid entry found")
