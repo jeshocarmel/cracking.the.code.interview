@@ -2,21 +2,7 @@ package ch10
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 )
-
-func generateArray(n int) []int {
-
-	arr := make([]int, n)
-
-	rand.Seed(time.Now().UnixNano())
-	for i := 0; i < n; i++ {
-		arr[i] = rand.Intn(100)
-	}
-
-	return arr
-}
 
 //RankNode represents a node in the binary search tree
 type RankNode struct {
