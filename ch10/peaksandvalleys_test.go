@@ -1,7 +1,6 @@
 package ch10
 
 import (
-	"fmt"
 	"sort"
 	"testing"
 )
@@ -15,7 +14,7 @@ func TestPeaksAndValleys(t *testing.T) {
 	sort.Ints(arr)
 
 	peaksandvalleys := alternatePeaksAndValleys(arr)
-	fmt.Println(peaksandvalleys)
+	//fmt.Println(peaksandvalleys)
 
 	for i := 2; i < len(peaksandvalleys); i += 2 {
 		if (peaksandvalleys[i-2] < peaksandvalleys[i-1]) || (peaksandvalleys[i-1] > peaksandvalleys[i]) {
@@ -33,7 +32,7 @@ func TestPeaksAndValleysOptimal(t *testing.T) {
 
 	arr := []int{9, 1, 0, 4, 8, 7}
 	peaksandvalleys := alternatePeaksAndValleysOptimal(arr)
-	fmt.Println(peaksandvalleys)
+	//fmt.Println(peaksandvalleys)
 
 	for i := 2; i < len(peaksandvalleys); i += 2 {
 		if (peaksandvalleys[i-2] > peaksandvalleys[i-1]) || (peaksandvalleys[i-1] < peaksandvalleys[i]) {
