@@ -1,10 +1,18 @@
 # Go solutions for Cracking The Code Interview questions
 
-1. Each GO file has an associated test file in the same folder. 
+  
 
-    e.g. ```peaksandvalleys.go``` and ```peaksandvalleys_test.go``` represent the solution to a question and it's respective test cases.
+This repository contains answers to the infamous [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/) book by **Gayle Laakmann McDowell**. For those who don't know what this book is about, think of it as the bible for software developers who appear for interviews in top tier companies. 
+  
 
-     To execute tests , run the below command in your terminal.
-        ```go test -v```
+1. Each Go file has an associated test file in the same folder.
 
-2. Chapter 13, which is JAVA based has solutions in JAVA. No test cases are added for JAVA classes.
+	e.g. ```peaksandvalleys.go``` and ```peaksandvalleys_test.go``` 			represent the solution to a question and it's respective test cases.
+
+	To run all tests , run 	```go test -v```  in your terminal.
+	To run a single test, run  ```go test -v -run TestFizzBuzz```  where *TestFizzBuzz* is the name of a test case in one of the test files.
+
+ 
+2. Chapter 13, which is JAVA based has solutions in JAVA language. No test cases are included as each file it's own main method.
+
+Good luck interviewing :)
