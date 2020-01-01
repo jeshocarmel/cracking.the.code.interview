@@ -10,10 +10,10 @@ var mux2 sync.Mutex
 
 var cioWg sync.WaitGroup
 
-// as the problem only requires a sequential execution of methods i.e. one at a time,
+// as the problem only requires a sequential execution of methods i.e. one at a time \
 // it's safe to use a mutex instead of a semaphore.
 
-//CallInOrder calls the three methods first() second() third()
+//CallInOrder calls the three methods first() second() third() using goroutines.
 func CallInOrder() string {
 	cioWg.Add(3)
 
