@@ -15,4 +15,6 @@ This repository contains answers to the infamous [Cracking the Coding Interview]
  
 2. Chapter 13, which is JAVA based has solutions in JAVA language. No test cases are included as each file it's own main method.
 
+3. Advanced directory has implementations of topics (e.g. Rabin-Karb search) included in the Advanced Topics section.
+
 Good luck interviewing :)
