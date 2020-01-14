@@ -5,6 +5,7 @@
 This repository contains answers to the infamous [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/) book by **Gayle Laakmann McDowell**. For those who don't know what this book is about, think of it as the bible for software developers who appear for interviews in top tier companies. 
   
 
+#### Instructions: 
 1. Each Go file has an associated test file in the same folder.
 
 	e.g. ```peaksandvalleys.go``` and ```peaksandvalleys_test.go``` 			represent the solution to a question and it's respective test cases.
