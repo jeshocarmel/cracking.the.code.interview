@@ -29,3 +29,13 @@ func createLinkedList(list []int) *Node {
 	}
 	return head
 }
+
+func (n *Node) len() int {
+	head := n
+	count := 0
+	for head != nil {
+		head = head.next
+		count++
+	}
+	return count
+}
