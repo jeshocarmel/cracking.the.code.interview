@@ -21,7 +21,6 @@ func TestDoubleLinkedList(t *testing.T) {
 	mydll.Insert(nodeA)
 	mydll.Insert(nodeB)
 	mydll.Insert(nodeC)
-
 	mydll.Insertafter(nodeB, nodeD)
 	mydll.InsertBefore(nodeD, nodeE)
 	mydll.InsertAtBeginning(nodeF)
