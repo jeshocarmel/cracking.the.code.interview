@@ -1,27 +1,29 @@
-package ch16
+package datastructures
 
 import (
 	"testing"
 
-	"github.com/magiconair/properties/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDoubleLinkedList(t *testing.T) {
 
 	var mydll DoubleLinkedList
-	nodeA := mydll.insert(10)
-	nodeB := mydll.insert(9)
-	nodeC := mydll.insert(8)
+	nodeA := mydll.Insert(10, 100)
+	nodeB := mydll.Insert(9, 90)
+	nodeC := mydll.Insert(8, 80)
 
-	mydll.insertafter(6, nodeB)
-	mydll.insertafter(11, nodeC)
-	nodeE := mydll.insertBefore(4, nodeC)
-	mydll.insertBefore(1, nodeA)
-	mydll.insertBefore(19, nodeE)
+	mydll.Insertafter(6, 60, nodeB)
+	mydll.Insertafter(11, 110, nodeC)
+	nodeE := mydll.InsertBefore(4, 40, nodeC)
+	mydll.InsertBefore(1, 10, nodeA)
+	mydll.InsertBefore(19, 190, nodeE)
 
-	mydll.insertAtBeginning(10)
-	mydll.insertAtEnd(20)
+	mydll.InsertAtBeginning(17, 170)
+	mydll.InsertAtEnd(20, 200)
 
-	assert.Equal(t, mydll.getAsList(), []int{10, 1, 10, 9, 6, 19, 4, 8, 11, 20})
+	mydll.Remove(4)
+
+	assert.Equal(t, mydll.GetKeysAsList(), []int{17, 1, 10, 9, 6, 19, 8, 11, 20})
 
 }
