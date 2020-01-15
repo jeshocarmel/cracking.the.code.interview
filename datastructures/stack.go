@@ -24,10 +24,11 @@ func NewStack() *Stack {
 //Push pushes an item into the stack
 func (s *Stack) Push(i interface{}) {
 
+	newItem := &Item{data: i}
+
 	if s.top == nil {
-		s.top = &Item{data: i}
+		s.top = newItem
 	} else {
-		newItem := &Item{data: i}
 		newItem.next = s.top
 		s.top = newItem
 	}
@@ -36,6 +37,10 @@ func (s *Stack) Push(i interface{}) {
 
 //Pop pops an item out of the stack
 func (s *Stack) Pop() interface{} {
+
+	if s.IsEmpty() {
+		return nil
+	}
 
 	deleted := s.top
 	s.top = s.top.next

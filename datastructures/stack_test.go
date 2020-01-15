@@ -17,6 +17,12 @@ func TestStack(t *testing.T) {
 	mystack.Pop()
 
 	mystack.Push(6)
+	mystack.Pop()
+	mystack.Pop()
+	mystack.Pop()
+	mystack.Pop()
+	mystack.Pop()
+	mystack.Push(2)
 
 	mystack.Print()
 
