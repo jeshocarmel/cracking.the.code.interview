@@ -4,15 +4,15 @@ import (
 	"cracking.the.code.interview/datastructures"
 )
 
-var cache map[int]int
+var cache map[int]*datastructures.Node
 var capacity int
 var dll datastructures.DoubleLinkedList
 
 func init() {
-	cache = make(map[int]int)
+	cache = make(map[int]*datastructures.Node)
 }
 
-func createCache(c int) map[int]int {
+func createCache(c int) map[int]*datastructures.Node {
 	capacity = c
 	return cache
 }
@@ -24,19 +24,31 @@ func addToCache(key, value int) {
 	}
 
 	if len(cache) >= capacity {
-		lastaccessedkey := dll.GetLastKey()
-		dll.Remove(lastaccessedkey)
-		delete(cache, lastaccessedkey)
+		lastNode := dll.GetLastNode()
+		dll.Remove(lastNode)
+		delete(cache, lastNode.Key)
 	}
 
-	dll.InsertAtBeginning(key, value)
-	cache[key] = value
+	newnode := datastructures.CreateNode(key, value)
+	dll.InsertAtBeginning(newnode)
+	cache[key] = newnode
 
 }
 
 func removeFromCache(key int) {
 
+	dll.Remove(cache[key])
 	delete(cache, key)
-	dll.Remove(key)
 
+}
+
+func getKeysOfCache() []int {
+
+	keys := []int{}
+
+	for k := range cache {
+		keys = append(keys, k)
+	}
+
+	return keys
 }

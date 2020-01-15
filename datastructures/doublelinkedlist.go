@@ -4,8 +4,8 @@ package datastructures
 type Node struct {
 	prev  *Node
 	next  *Node
-	key   int
-	value int
+	Key   int
+	Value int
 }
 
 //DoubleLinkedList represents the double linked list
@@ -14,9 +14,7 @@ type DoubleLinkedList struct {
 	tail *Node
 }
 
-func (dll *DoubleLinkedList) Insert(k int, v int) *Node {
-
-	newNode := &Node{key: k, value: v}
+func (dll *DoubleLinkedList) Insert(newNode *Node) *Node {
 
 	if dll.head == nil {
 		dll.head = newNode
@@ -29,9 +27,8 @@ func (dll *DoubleLinkedList) Insert(k int, v int) *Node {
 	return newNode
 }
 
-func (dll *DoubleLinkedList) Insertafter(k, v int, node *Node) *Node {
+func (dll *DoubleLinkedList) Insertafter(node, newNode *Node) *Node {
 
-	newNode := &Node{key: k, value: v}
 	newNode.prev = node
 
 	if node.next == nil {
@@ -47,8 +44,7 @@ func (dll *DoubleLinkedList) Insertafter(k, v int, node *Node) *Node {
 	return newNode
 }
 
-func (dll *DoubleLinkedList) InsertBefore(k, v int, node *Node) *Node {
-	newNode := &Node{key: k, value: v}
+func (dll *DoubleLinkedList) InsertBefore(node, newNode *Node) *Node {
 	newNode.next = node
 
 	if node.prev == nil {
@@ -63,8 +59,7 @@ func (dll *DoubleLinkedList) InsertBefore(k, v int, node *Node) *Node {
 	return newNode
 }
 
-func (dll *DoubleLinkedList) InsertAtBeginning(k, v int) *Node {
-	newNode := &Node{key: k, value: v}
+func (dll *DoubleLinkedList) InsertAtBeginning(newNode *Node) *Node {
 
 	if dll.head == nil {
 		dll.head = newNode
@@ -78,12 +73,11 @@ func (dll *DoubleLinkedList) InsertAtBeginning(k, v int) *Node {
 	return newNode
 }
 
-func (dll *DoubleLinkedList) InsertAtEnd(k, v int) *Node {
-	newNode := &Node{key: k, value: v}
+func (dll *DoubleLinkedList) InsertAtEnd(newNode *Node) *Node {
 
 	//handling empty list
 	if dll.tail == nil {
-		return dll.InsertAtBeginning(k, v)
+		return dll.InsertAtBeginning(newNode)
 	}
 
 	dll.tail.next = newNode
@@ -93,10 +87,10 @@ func (dll *DoubleLinkedList) InsertAtEnd(k, v int) *Node {
 	return newNode
 }
 
-func (dll *DoubleLinkedList) Remove(key int) *Node {
+func (dll *DoubleLinkedList) Remove(node *Node) *Node {
 
 	for n := dll.head; n != nil; n = n.next {
-		if key == n.key {
+		if node == n {
 			if n.prev == nil {
 				dll.head = n.next
 			} else {
@@ -117,11 +111,11 @@ func (dll *DoubleLinkedList) Remove(key int) *Node {
 
 }
 
-func (dll *DoubleLinkedList) GetLastKey() int {
+func (dll *DoubleLinkedList) GetLastNode() *Node {
 	if dll.tail != nil {
-		return dll.tail.key
+		return dll.tail
 	}
-	return 0
+	return nil
 }
 
 func (dll *DoubleLinkedList) GetKeysAsList() []int {
@@ -129,8 +123,12 @@ func (dll *DoubleLinkedList) GetKeysAsList() []int {
 	list := []int{}
 
 	for node := dll.head; node != nil; node = node.next {
-		list = append(list, node.key)
+		list = append(list, node.Key)
 	}
 
 	return list
+}
+
+func CreateNode(k, v int) *Node {
+	return &Node{Key: k, Value: v}
 }

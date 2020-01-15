@@ -16,13 +16,7 @@ func TestLRUCache(t *testing.T) {
 
 	addToCache(1, 1234)
 
-	expected := make(map[int]int)
-	expected[17] = 1700
-	expected[18] = 1800
-	expected[19] = 1900
-	expected[20] = 2000
-	expected[1] = 1234
-
-	assert.Equal(t, expected, cache)
+	expected := []int{1, 17, 18, 19, 20}
+	assert.Equal(t, getKeysOfCache(), expected)
 
 }

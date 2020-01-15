@@ -8,22 +8,27 @@ import (
 
 func TestDoubleLinkedList(t *testing.T) {
 
+	nodeA := CreateNode(10, 100)
+	nodeB := CreateNode(11, 110)
+	nodeC := CreateNode(12, 120)
+	nodeD := CreateNode(13, 130)
+	nodeE := CreateNode(14, 140)
+	nodeF := CreateNode(1, 10)
+	nodeG := CreateNode(100, 1000)
+
 	var mydll DoubleLinkedList
-	nodeA := mydll.Insert(10, 100)
-	nodeB := mydll.Insert(9, 90)
-	nodeC := mydll.Insert(8, 80)
 
-	mydll.Insertafter(6, 60, nodeB)
-	mydll.Insertafter(11, 110, nodeC)
-	nodeE := mydll.InsertBefore(4, 40, nodeC)
-	mydll.InsertBefore(1, 10, nodeA)
-	mydll.InsertBefore(19, 190, nodeE)
+	mydll.Insert(nodeA)
+	mydll.Insert(nodeB)
+	mydll.Insert(nodeC)
 
-	mydll.InsertAtBeginning(17, 170)
-	mydll.InsertAtEnd(20, 200)
+	mydll.Insertafter(nodeB, nodeD)
+	mydll.InsertBefore(nodeD, nodeE)
+	mydll.InsertAtBeginning(nodeF)
+	mydll.InsertAtEnd(nodeG)
 
-	mydll.Remove(4)
+	mydll.Remove(nodeE)
 
-	assert.Equal(t, mydll.GetKeysAsList(), []int{17, 1, 10, 9, 6, 19, 8, 11, 20})
+	assert.Equal(t, mydll.GetKeysAsList(), []int{1, 10, 11, 13, 12, 100})
 
 }
