@@ -1,7 +1,6 @@
 package ch03
 
 import "testing"
-
 import "github.com/magiconair/properties/assert"
 
 func TestQueueViaStack(t *testing.T) {
@@ -14,6 +13,12 @@ func TestQueueViaStack(t *testing.T) {
 	myqueue = myqueue.remove()
 	myqueue = myqueue.add(5)
 
-	assert.Equal(t, myqueue.stack1.items, []int{3, 4, 5})
+	assert.Equal(t, myqueue.list(), []int{3, 4, 5})
+	assert.Equal(t, myqueue.peek(), 5)
+
+	myqueue = myqueue.remove()
+
+	assert.Equal(t, myqueue.list(), []int{4, 5})
+	assert.Equal(t, myqueue.peek(), 5)
 
 }

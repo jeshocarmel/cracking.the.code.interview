@@ -91,3 +91,13 @@ func (q customqueue) remove() customqueue {
 	return q
 
 }
+func (q customqueue) peek() int {
+
+	return q.stack1.items[len(q.stack1.items)-1]
+}
+
+func (q customqueue) list() []int {
+	return q.stack1.items
+}
+
+//queue implementation ends here
