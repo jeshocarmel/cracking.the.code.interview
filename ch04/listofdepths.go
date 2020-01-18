@@ -2,7 +2,7 @@ package ch04
 
 func (n *Node) insert(data int) {
 
-	if n.data < data {
+	if data < n.data {
 		if n.left == nil {
 			n.left = createNode(data)
 		} else {

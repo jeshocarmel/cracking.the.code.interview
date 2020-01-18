@@ -1,6 +1,7 @@
 package ch04
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -20,11 +21,14 @@ func (n *Node) height() int {
 		return math.MinInt8
 	}
 
+	fmt.Println(leftHeight, rightHeight)
+
 	heightDiff := abs(leftHeight - rightHeight)
 
 	if heightDiff > 1 {
 		return math.MinInt8
 	}
+
 	return max(leftHeight, rightHeight) + 1
 }
 
