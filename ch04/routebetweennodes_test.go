@@ -16,7 +16,13 @@ func TestRouteBetweenNodesDfs(t *testing.T) {
 	N1 := g.CreateGraphNode("N1")
 	N2 := g.CreateGraphNode("N2")
 
-	// N1 and N2 are independent to the rest of the nodes
+	addEdge(A, B)
+	addEdge(A, C)
+	addEdge(A, D)
+	addEdge(B, C)
+	addEdge(N1, N2)
+
+	// N1 and N2 are independent to the rest of the node
 
 	/*
 		A --- B
@@ -25,17 +31,13 @@ func TestRouteBetweenNodesDfs(t *testing.T) {
 		C   D		N1 --- N2
 	*/
 
-	addEdge(A, B)
-	addEdge(A, C)
-	addEdge(A, D)
-	addEdge(B, C)
-	addEdge(N1, N2)
-
 	var routeExists bool
 	routeExists = dfs(A, N2)
 	assert.Equal(t, routeExists, false)
 
 	g.clearVisits()
+
+	addEdge(D, N1) //N1 is connected to D
 
 	/*
 		A --- B
@@ -44,8 +46,6 @@ func TestRouteBetweenNodesDfs(t *testing.T) {
 		C   D --- N1 --- N2
 	*/
 
-	//N1 is connected to D
-	addEdge(D, N1)
 	routeExists = dfs(A, N2)
 	assert.Equal(t, routeExists, true)
 }
@@ -89,8 +89,7 @@ func TestRouteBetweenNodesBfs(t *testing.T) {
 		C   D --- N1 --- N2
 	*/
 
-	//N1 is connected to D
-	addEdge(D, N1)
+	addEdge(D, N1) //N1 is connected to D
 	routeExists = bfs(A, N2)
 	assert.Equal(t, routeExists, true)
 
