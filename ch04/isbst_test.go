@@ -24,7 +24,7 @@ func TestIsBST(t *testing.T) {
 	*/
 
 	var result bool
-	result = isBST(root)
+	result = isBST(root, nil, nil)
 	assert.Equal(t, result, true)
 
 	//----case 1 ends
@@ -41,7 +41,25 @@ func TestIsBST(t *testing.T) {
 		24   22		95
 
 	*/
-	result = isBST(root)
+	result = isBST(root, nil, nil)
+	assert.Equal(t, result, false)
+
+	//----case 2 ends
+
+	//----case 3 starts
+
+	root.left.right = createNode(60)
+
+	/*
+			56
+		   /	\
+		27		 75
+		/	\		\
+		24   60		95
+
+	*/
+
+	result = isBST(root, nil, nil)
 	assert.Equal(t, result, false)
 
 }

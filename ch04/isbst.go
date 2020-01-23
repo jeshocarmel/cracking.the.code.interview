@@ -1,18 +1,18 @@
 package ch04
 
-func isBST(root *Node) bool {
+func isBST(root *Node, min, max interface{}) bool {
 	if root == nil {
 		return true
 	}
 
-	if root.left != nil && root.left.data > root.data {
+	if min != nil && root.data < min.(int) {
 		return false
 	}
 
-	if root.right != nil && root.right.data < root.data {
+	if max != nil && root.data > max.(int) {
 		return false
 	}
 
-	return isBST(root.left) && isBST(root.right)
+	return isBST(root.left, min, root.data) && isBST(root.right, root.data, max)
 
 }
