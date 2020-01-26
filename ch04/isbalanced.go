@@ -86,5 +86,4 @@ func isBalancedOptimized(root *Node) bool {
 	_, res := checkHeights(root)
 
 	return res
-
 }
