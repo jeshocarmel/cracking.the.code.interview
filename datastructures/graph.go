@@ -14,7 +14,8 @@ type Graph struct {
 	nodes []*GraphNode
 }
 
-func (g *Graph) createNode(data string) *GraphNode {
+//CreateGraphNode ...
+func (g *Graph) CreateGraphNode(data string) *GraphNode {
 
 	n := &GraphNode{data: data}
 	n.children = make([]*GraphNode, 0)

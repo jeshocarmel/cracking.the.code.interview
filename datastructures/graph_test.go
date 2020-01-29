@@ -9,12 +9,12 @@ func TestGraph(t *testing.T) {
 
 	g := new(Graph)
 
-	A := g.createNode("A")
-	B := g.createNode("B")
-	C := g.createNode("C")
-	D := g.createNode("D")
-	F := g.createNode("F")
-	E := g.createNode("E")
+	A := g.CreateGraphNode("A")
+	B := g.CreateGraphNode("B")
+	C := g.CreateGraphNode("C")
+	D := g.CreateGraphNode("D")
+	F := g.CreateGraphNode("F")
+	E := g.CreateGraphNode("E")
 
 	addEdge(A, B)
 	addEdge(A, C)
