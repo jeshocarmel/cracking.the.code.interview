@@ -1,71 +1,52 @@
 package ch16
 
-func hasWonBruteForce(arr [][]int) bool {
+func hasWon(arr [][]int, row int, col int) int {
 
-	if diagonalcheck(arr) || crossdiagonalcheck(arr) {
+	if hasWonByRow(arr, row) || hasWonByCol(arr, col) || hasWonByDiagonal(arr, row, col) {
+		return arr[row][col]
+	}
+
+	return -1
+}
+
+func hasWonByRow(arr [][]int, row int) bool {
+
+	for j := 1; j < len(arr[0]); j++ {
+		if arr[row][j] != arr[row][0] {
+			return false
+		}
+	}
+
+	return true
+}
+
+func hasWonByCol(arr [][]int, col int) bool {
+
+	for i := 1; i < len(arr); i++ {
+		if arr[i][col] != arr[0][col] {
+			return false
+		}
+	}
+
+	return true
+}
+
+func hasWonByDiagonal(arr [][]int, row, col int) bool {
+
+	if row == col {
+		for i, j := 1, 1; i < len(arr) && j < len(arr[0]); i, j = i+1, j+1 {
+			if arr[i][j] != arr[0][0] {
+				return false
+			}
+		}
+		return true
+	} else {
+
+		for i, j := len(arr)-2, 1; i >= 0 && j < len(arr[0]); i, j = i-1, j+1 {
+			if arr[i][j] != arr[len(arr)-1][0] {
+				return false
+			}
+		}
 		return true
 	}
-
-	for i := 0; i < len(arr); i++ {
-		if horizontalcheck(arr, i) {
-			return true
-		}
-
-		if verticalcheck(arr, i) {
-			return true
-		}
-	}
-
-	return false
-
-}
-
-func horizontalcheck(arr [][]int, row int) bool {
-
-	j := 0
-	for j < len(arr[0]) {
-		if arr[row][j] == 0 {
-			return false
-		}
-		j++
-	}
-
-	return true
-}
-
-func verticalcheck(arr [][]int, col int) bool {
-
-	i := 0
-
-	for i < len(arr) {
-		if arr[i][col] == 0 {
-			return false
-		}
-		i++
-	}
-
-	return true
-
-}
-
-func diagonalcheck(arr [][]int) bool {
-
-	for i, j := 0, 0; i < len(arr) && j < len(arr[0]); i, j = i+1, j+1 {
-		if arr[i][j] == 0 {
-			return false
-		}
-	}
-
-	return true
-}
-
-func crossdiagonalcheck(arr [][]int) bool {
-
-	for i, j := len(arr)-1, 0; i >= 0 && j < len(arr[0]); i, j = i-1, j+1 {
-		if arr[i][j] == 0 {
-			return false
-		}
-	}
-
-	return true
 }
