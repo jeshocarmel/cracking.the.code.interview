@@ -13,7 +13,6 @@ func TestTicTacToe(t *testing.T) {
 	x o x
 
 	winner - x
-
 	*/
 
 	arr := [][]int{{1, 0, 1}, {0, 1, 0}, {1, 0, 1}}
