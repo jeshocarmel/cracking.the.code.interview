@@ -12,6 +12,9 @@ func TestSmallestDifference(t *testing.T) {
 	arr2 := []int{4, 12, 19, 23, 127, 235}
 
 	difference := smallestDifferenceBruteForce(arr1, arr2)
-	assert.Equal(t, difference, 3)
+	assert.Equal(t, difference, 1)
+
+	difference = smallestDifference(arr1, arr2)
+	assert.Equal(t, difference, 1)
 
 }

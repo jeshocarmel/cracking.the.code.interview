@@ -22,7 +22,7 @@ func smallestDifferenceBruteForce(arr1, arr2 []int) int {
 }
 
 //Optimal O(m log m +n log n) where m and n are len(arr1) and len(arr2) as sorting takes place for both the arrays
-func smallestDifference(arr1, arr2 []int) {
+func smallestDifference(arr1, arr2 []int) int {
 
 	//sort arr1
 	sort.Slice(arr1, func(i, j int) bool {
@@ -53,4 +53,5 @@ func smallestDifference(arr1, arr2 []int) {
 			sp++
 		}
 	}
+	return smallest
 }
